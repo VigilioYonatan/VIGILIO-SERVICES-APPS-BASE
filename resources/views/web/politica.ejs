@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('components/webHead',{title:"Home"}) %>
+    </head>
+
+    <body class="bg-paper-light dark:bg-background-dark antialiased">
+        <%- include('components/webHeader',{title:"Home"}) %>
+        <div class="flex justify-center my-12 uppercase">
+            <%- include("./components/TitleOne",{title:"Política de privacidad"}) %>
+        </div>
+        <div>
+            <mark-down source="<%= onlypolitica.politica %>"></mark-down>
+        </div>
+        <%- include('components/webFooter',{title:"Home"}) %>
+    </body>
+</html>

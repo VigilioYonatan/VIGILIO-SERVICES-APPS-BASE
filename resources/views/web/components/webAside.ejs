@@ -1,0 +1,74 @@
+<div
+    x-data="{isOpen:false}"
+    class="lg:hidden order-2"
+    x-effect="document.body.classList.toggle('overflow-hidden',isOpen)"
+>
+    <div class="flex items-center gap-2">
+        <button
+            class=""
+            type="button"
+            aria-label="open aside"
+            @click="isOpen=true"
+        >
+            <i class="fa-solid fa-bars text-3xl text-primary"></i>
+        </button>
+    </div>
+
+    <aside
+        class="fixed top-0 left-0 bottom-0 right-0 z-[999] h-screen w-full bg-black bg-opacity-80"
+        :class="isOpen ? 'visible': 'invisible'"
+        @click="isOpen=false"
+    >
+        <div
+            class="relative w-full sm:w-[300px] h-full bg-background-light dark:bg-background-dark delay-custom-1"
+            :class="isOpen ? 'translate-x-0': '-translate-x-full'"
+            @click="e=>e.stopPropagation()"
+        >
+            <div class="flex flex-col">
+                <div class="flex justify-center items-center py-4">
+                    <%- include("./Logo.ejs") %>
+                </div>
+                <web-search ></web-search>
+                <nav class="flex items-center gap-3 flex-col h-full w-full">
+                    <a
+                        href="<%= route("/")  %>"
+                        class="text-black dark:text-secondary-light hover:text-secondary-light font-semibold uppercase text-sm hover: hover:bg-primary w-full text-center py-2 delay-custom-1 tracking-wider"
+                        >INICIO</a
+                    >
+                    <a
+                        href="<%= route("/menu")  %>"
+                        class="text-black dark:text-secondary-light hover:text-secondary-light font-semibold uppercase text-sm hover: hover:bg-primary w-full text-center py-2 delay-custom-1 tracking-wider"
+                        >MENÚ</a
+                    >
+                    <a
+                        href="<%= route("/nosotros")  %>"
+                        class="text-black dark:text-secondary-light hover:text-secondary-light font-semibold uppercase text-sm hover: hover:bg-primary w-full text-center py-2 delay-custom-1 tracking-wider"
+                        >NOSOTROS</a
+                    >
+                    <% if(typeof $user !== "undefined"){ %>
+                    <a
+                        href="<%= route("/auth/profile")  %>"
+                        class="text-black dark:text-secondary-light hover:text-secondary-light font-semibold uppercase text-sm hover: hover:bg-primary w-full text-center py-2 delay-custom-1 tracking-wider"
+                        >PERFIL</a
+                    >
+                    <% } %>
+                </nav>
+            </div>
+            <div class="absolute bottom-0 w-full right-0">
+                <a
+                    href=""
+                    class="block text-center my-2 text-xs opacity-40 dark:text-secondary-light"
+                    >Powered by <b>Vigilio</b></a
+                >
+                <button
+                    class="bg-danger w-full py-3 flex gap-2 justify-center items-center uppercase text-sm text-white"
+                    aria-label="close aside"
+                    @click="isOpen=false"
+                >
+                    <i class="fa-regular fa-circle-xmark"></i>
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </aside>
+</div>

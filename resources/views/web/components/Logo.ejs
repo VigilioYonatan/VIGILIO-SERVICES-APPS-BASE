@@ -1,0 +1,9 @@
+<div class="flex justify-center items-center">
+    <a href="<%= route("/")  %>" class="text-primary text-4xl font-bold"> 
+    <% if($information.logo){  %>
+        <img width="100" height="100" class="w-[80px] h-[60px] object-contain" alt="<%= $information.name  %>" src="<%= printFileWithDimension($information.logo,"information",100) %>" alt="">
+    <% } else{%>
+        <%= $information.name  %>
+    <% } %>
+    </a>
+</div>

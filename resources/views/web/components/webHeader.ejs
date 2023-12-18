@@ -1,0 +1,37 @@
+
+<header
+    class="sticky top-0 right-0 z-[99] bg-secondary shadow"
+>
+    <div
+        class="max-w-6xl container mx-auto flex justify-between items-center py-3 px-6"
+    >
+        <%- include("./Logo.ejs") %>
+        <div class="hidden lg:block">
+            <web-search ></web-search>
+        </div>
+        <%- include("./webAside.ejs") %>
+
+        <nav class="flex gap-6 items-center">
+         <ul class="items-center gap-6 hidden lg:flex">
+            <li> <a
+                href="<%= route("/")  %>"
+                class="<%= isActive("/",false) ? 'text-primary' : 'text-secondary-light' %>  font-bold tracking-wider uppercase text-sm link hover:text-primary "
+                >Inicio</a
+            ></li>
+            <li><a
+                href="<%= route("/menu")  %>"
+                class="<%= isActive("/menu",false) ? 'text-primary' : 'text-secondary-light' %> text-secondary-light font-bold tracking-wider uppercase text-sm link dark:hover:text-primary hover:text-primary "
+                >Menú</a
+            ></li>
+            <li><a
+                href="<%= route("/nosotros")  %>"
+                class="<%= isActive("/nosotros",false) ? 'text-primary' : 'text-secondary-light' %> text-secondary-light font-bold tracking-wider uppercase text-sm link dark:hover:text-primary hover:text-primary "
+                >Nosotros</a
+            ></li>
+     
+         </ul>   
+         <web-tabs :$information="<%= JSON.stringify($information) %>" :$user="<%= typeof
+            $user !== "undefined" ? JSON.stringify($user) : JSON.stringify({}) %>"></web-tabs>
+        </nav>
+    </div>
+</header>

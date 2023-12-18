@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../web/components/webHead',{title:user.name }) %>
+    </head>
+    <body class="bg-paper-light dark:bg-background-dark">
+        <%- include("../web/components/webHeader.ejs") %>
+        <div class="my-12 mx-4">
+            <auth-profile></auth-profile>
+        </div>
+        <%- include("../web/components/webFooter.ejs") %>
+    </body>
+</html>

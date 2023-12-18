@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../components/webHead',{title:"Inicio"}) %>
+</head>
+
+<body class="bg-paper-light dark:bg-background-dark antialiased">
+  <!-- header -->
+  <%- include('../components/webHeader',{title:"Inicio"}) %>
+  <!-- background -->
+  <%- include("./background.ejs") %>
+  <!-- box-resume -->
+  <%- include("./box-resume.ejs") %>
+  <!-- about -->
+  <%- include("./about.ejs") %>
+  <!-- categories -->
+  <%- include("./categories.ejs") %>
+  <!-- offers -->
+  <%- include("./offers.ejs") %>
+  <!-- web -->
+  <web-carta id="carta"></web-carta>
+  <!-- members -->
+  <%- include("./members.ejs") %>
+  <!-- reviews -->
+  <%- include("./reviews.ejs") %>
+  <!-- footer -->
+  <%- include('../components/webFooter') %>
+</body>
+
+</html>

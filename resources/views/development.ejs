@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" data-class="dark">
+
+<head>
+  <%- include('./web/components/webHead',{title:"Desarrollo"}) %>
+</head>
+
+<body class="bg-paper-light dark:bg-background-dark antialiased h-screen flex justify-center items-center flex-col">
+  <%- include("./web/components/Logo.ejs")  %>
+  <h4 class="text-secondary-dark text-center dark:text-secondary-light font-bold">Esta web está en desarrollo, intentelo de nuevo más tarde...</h4>
+  <div class="flex flex-col justify-center items-center">
+    <a href="https://wa.me/51<%= $information.telephoneFirst %>" target="_blank" class="w-[50px] mt-2 h-[50px] flex justify-center items-center right-4 bg-success p-4 rounded-full" rel="noreferrer">
+      <i class="fa-brands fa-whatsapp text-4xl text-white"></i>
+    </a>
+    <span class="text-secondary-dark text-center dark:text-secondary-light">whatsapp</span>
+  </div>
+
+</body>
+
+</html>

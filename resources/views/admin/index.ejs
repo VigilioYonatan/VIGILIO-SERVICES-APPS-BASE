@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" style="--primary: #0c2e65">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= $information.name %> - admin</title>
+  <meta name="description" content="framework to create web" />
+  <link rel="shortcut icon" href="<%= $information.logo ?
+        printFileWithDimension($information.logo,"information",300)[0] : '' %>" type="image/x-icon" /> <%- vite %>
+  <script src="<%= route('/js/sweet.min.js')  %>" defer></script>
+</head>
+
+<body class="dark:bg-admin-background-dark bg-paper-light admin antialiased">
+  <vigilio-admin :$user="<%= JSON.stringify($user)%>" :$information="<%= JSON.stringify($information)  %>"></vigilio-admin>
+</body>
+
+</html>

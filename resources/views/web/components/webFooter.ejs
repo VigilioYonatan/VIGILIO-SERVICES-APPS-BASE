@@ -1,0 +1,105 @@
+<web-settings></web-settings>
+<div x-data="{isHidden:localStorage.getItem('cookie') ?? false}" :class="isHidden ? 'hidden' : ''" class="fixed bottom-0left-0 right-0 z-[99999999999999] text-white">
+  <div class=" max-w-6xl  p-5 xl bg-secondary mx-auto flex gap-4">
+    <span>Este sitio web utiliza cookies para ayudarte a tener una experiencia de navegación superior y más satisfactoria en su sitio web.</span>
+    <button class="bg-primary px-6 py-1  text-white" @click="()=>{localStorage.setItem('cookie',true);isHidden=true; }">Aceptar</button>
+  </div>
+</div>
+<footer class="bg-secondary pt-12 pb-8 px-4 mb-12 lg:mb-0 flex flex-col gap-4">
+  <div class="max-w-6xl lg:mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="flex flex-col gap-4">
+      <%- include("./TitleTwo",{title:"Compañía"}) %>
+      <div class="flex flex-col gap-4 ">
+        <a href="<%= route("/menu")%>" class=" text-white flex items-center gap-3 hover:text-primary delay-custom-1"><i class="fa-solid fa-chevron-right"></i>Menú</a>
+        <a href="<%= route("/nosotros")  %>" class=" text-white flex items-center gap-3 hover:text-primary delay-custom-1"><i class="fa-solid fa-chevron-right"></i>Nosotros</a>
+        <% if(typeof $user !== "undefined"){ %>
+        <a href="<%= route("/auth/profile")  %>" class=" text-white flex items-center gap-3 hover:text-primary delay-custom-1"><i class="fa-solid fa-chevron-right"></i>Mi Perfil</a>
+        <% } %>
+        <a href="<%= route("/politica-de-privacidad")%>" class=" text-white flex items-center gap-3 hover:text-primary delay-custom-1"><i class="fa-solid fa-chevron-right"></i>Políticas de privacidad</a>
+
+      </div>
+    </div>
+    <div class="flex flex-col gap-4 ">
+      <%- include("./TitleTwo",{title:"Contacto"}) %>
+      <div class="flex flex-col gap-4">
+        <div class="flex gap-3 text-white items-center ">
+          <i class="fa-solid fa-location-dot"></i>
+          <span class="font-normal">Mz u3 lt 21 la paz</span>
+        </div>
+        <div class="flex gap-3 text-white items-center ">
+          <i class="fa-solid fa-phone self-start"></i>
+          <div class="flex flex-col">
+            <span class="font-normal tracking-wider">+51 <%= numberPhoneFormated($information.telephoneFirst) %></span>
+            <% if($information.telephoneSecond){  %>
+            <span class="font-normal tracking-wider">+51 <%= numberPhoneFormated($information.telephoneSecond) %></span>
+            <% } %>
+            <% if($information.third){  %>
+            <span class="font-normal tracking-wider">+51 <%= numberPhoneFormated($information.third) %></span>
+            <% } %>
+          </div>
+        </div>
+        <div class="flex gap-3 text-white items-center ">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="font-normal"><%= $information.email %></span>
+        </div>
+        <div class="flex gap-2">
+          <% if($information.facebook){ %>
+          <a href="<%= $information.facebook %>" target="_blank" class="text-white border border-white hover:bg-primary delay-custom-1 rounded-full w-[35px] flex h-[35px] justify-center items-center" rel="noreferrer">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <% } %> <% if($information.instagram){ %>
+          <a href="<%= $information.instagram %>" class="text-white border border-white hover:bg-primary delay-custom-1 rounded-full w-[35px] flex h-[35px] justify-center items-center" target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <% } %> <% if($information.tiktok){%>
+          <a href="<%= $information.tiktok %>" class="text-white border border-white hover:bg-primary delay-custom-1 rounded-full w-[35px] flex h-[35px] justify-center items-center" target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <% } %> <% if($information.youtube){%>
+          <a href="<%= $information.youtube %>" class="text-white border border-white hover:bg-primary delay-custom-1 rounded-full w-[35px] flex h-[35px] justify-center items-center" target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <%- include("./TitleTwo",{title:"Ubicanos"}) %>
+      <div class="flex flex-col gap-2">
+        <iframe src="<%= $information.mapa  %>" width="600" height="200" class="w-full" title="map" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="flex  flex-col gap-4">
+      <%- include("./TitleTwo",{title:"Horario de atención"}) %>
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-1 text-white">
+          <p class="text-xl font-semibold">Lunes - Sabados</p>
+          <span class="">09AM - 09PM</span>
+        </div>
+        <div class="flex flex-col gap-1 text-white">
+          <p class="text-xl font-semibold">Domingos</p>
+          <span class="">09AM - 09PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include("Hr") %>
+  <div class="max-w-6xl gap-4 mx-auto flex justify-between items-center pt-3 w-full">
+    <div class="text-terciary text-center lg:text-start lg:whitespace-nowrap  flex-1">
+      <p class="">
+        © 2020 - <b><%= new Date().getFullYear() %></b>, <%=
+                $information.name %> | Todos los derechos reservados
+      </p>
+    </div>
+
+    <div class="flex-1 flex justify-center items-center">
+      <a href="#start" type="button" class="py-3 px-5 bg-primary">
+        <i class="fa-solid fa-caret-up text-4xl text-white"></i>
+      </a>
+    </div>
+    <p class="text-terciary text-sm flex-1 text-center whitespace-nowrap">
+      Desarrollado por
+      <a class="text-primary hover:border-b hover:border-primary" href="">Vigilio</a>
+    </p>
+  </div>
+</footer>

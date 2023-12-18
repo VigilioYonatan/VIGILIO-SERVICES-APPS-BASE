@@ -1,0 +1,46 @@
+@import "./fontawesome/brands.min.css";
+@import "./fontawesome/regular.min.css";
+@import "./fontawesome/fontawesome.min.css";
+@import "./fontawesome/solid.min.css";
+@import "./fontawesome/duotone.min.css";
+@import "./fontawesome/sharp-regular.min.css";
+@import "./fontawesome/sharp-solid.min.css";
+@font-face {
+    font-family: Heebo-Thin;
+    src: url("/fonts/Heebo-Thin.ttf");
+    font-display: swap;
+}
+@font-face {
+    font-family: Heebo-Light;
+    src: url("/fonts/Heebo-Light.ttf");
+    font-display: swap;
+}
+@font-face {
+    font-family: Heebo-Regular;
+    src: url("/fonts/Heebo-Regular.ttf");
+    font-display: swap;
+}
+@font-face {
+    font-family: Heebo-Bold;
+    src: url("/fonts/Heebo-Bold.ttf");
+    font-display: swap;
+}
+@font-face {
+    font-family: Heebo-Black;
+    src: url("/fonts/Heebo-Black.ttf");
+    font-display: swap;
+}
+@font-face {
+    font-family: Pacifico-Regular;
+    src: url("/fonts/Pacifico-Regular.ttf");
+    font-display: swap;
+}
+.font-pacifico {
+    font-family: Pacifico-Regular;
+}
+@layer base {
+    html {
+        font-family: Heebo-Light;
+        scroll-behavior: smooth;
+    }
+}

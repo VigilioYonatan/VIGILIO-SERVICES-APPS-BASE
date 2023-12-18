@@ -1,0 +1,128 @@
+@import "./fonts.css";
+@import "./spinner.css";
+@import "./utils.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --primary: #fea624;
+    --secondary: #000000;
+}
+
+/* vifgilio-sweet */
+.vigilio-modal {
+    background-color: rgba(0, 0, 0, 0.801) !important;
+    overflow: auto;
+    width: 100%;
+}
+.vigilio-modal .modal > div {
+    width: 100%;
+}
+.vigilio-modal .modal {
+    padding: 0.5rem !important;
+    overflow: auto;
+    border-radius: 0 !important;
+}
+@media (min-width: 650px) {
+    .vigilio-modal .modal {
+        padding: 2rem !important;
+    }
+}
+/*  sweet admin */
+.admin .vigilio-modal .modal > div {
+    width: 100%;
+}
+.admin .vigilio-modal .modal .vigilio-icon {
+    width: 5em;
+}
+.admin .vigilio-alert-container {
+    @apply dark:bg-admin-terciary bg-paper-light;
+}
+.admin .vigilio-modal .modal {
+    border-radius: 10px !important;
+    @apply dark:bg-admin-paper-dark bg-background-light;
+}
+.admin .vigilio-modal .modal .vigilio-success-circular-line-right {
+    @apply dark:bg-admin-paper-dark bg-background-light;
+}
+.admin .vigilio-modal .modal .vigilio-success-fix {
+    @apply dark:bg-admin-paper-dark bg-background-light;
+}
+.admin .vigilio-modal .modal .vigilio-success-circular-line-left {
+    @apply dark:bg-admin-paper-dark bg-background-light;
+}
+.admin .vigilio-modal .modal .vigilio-title {
+    @apply dark:text-secondary-light text-secondary-dark;
+}
+.admin .vigilio-modal .modal .vigilio-html-container {
+    @apply text-terciary  font-normal tracking-wide;
+}
+.admin .vigilio-alert .vigilio-title {
+    @apply dark:text-white text-black;
+}
+.admin .vigilio-alert .vigilio-title {
+    font-size: 0.9rem !important;
+}
+/*  */
+.vigilio-alert-container {
+    border-radius: 0px !important;
+    @apply dark:bg-paper-dark bg-paper-light;
+}
+
+.vigilio-alert-container div {
+    width: 100%;
+}
+.vigilio-modal .modal {
+    @apply dark:bg-paper-dark bg-paper-light;
+}
+.vigilio-modal .modal .vigilio-success-circular-line-right {
+    @apply dark:bg-paper-dark bg-paper-light;
+}
+.vigilio-modal .modal .vigilio-success-fix {
+    @apply dark:bg-paper-dark bg-paper-light;
+}
+.vigilio-modal .modal .vigilio-success-circular-line-left {
+    @apply dark:bg-paper-dark bg-paper-light;
+}
+.vigilio-modal .modal .vigilio-title {
+    @apply dark:text-secondary-light text-secondary-dark;
+}
+.vigilio-modal .modal .vigilio-html-container {
+    @apply text-terciary  font-normal tracking-wide;
+}
+.vigilio-alert .vigilio-title {
+    @apply dark:text-white text-black;
+}
+.vigilio-alert .vigilio-title {
+    font-size: 0.9rem !important;
+}
+
+
+/*  scrollbar custom */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-md; /* Color del pulgar de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff00;
+}
+
+::-webkit-scrollbar-horizontal {
+    height: 12px;
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    @apply bg-primary;
+}
+
+::-webkit-scrollbar-track:horizontal {
+    @apply bg-transparent;
+}

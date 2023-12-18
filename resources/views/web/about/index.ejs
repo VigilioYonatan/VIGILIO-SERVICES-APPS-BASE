@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../components/webHead',{title:"Nosotros"}) %>
+    </head>
+    <body class="bg-paper-light dark:bg-background-dark antialiased">
+        <%- include('../components/webHeader') %>
+        <div class="flex justify-center my-12 uppercase">
+            <%- include("../components/TitleOne",{title:"Nosotros"}) %>
+        </div>
+        <%- include('../home/about') %> <%- include('../home/members') %>
+        <%-include('../home/reviews') %> <%- include('../components/webFooter')
+        %>
+    </body>
+</html>

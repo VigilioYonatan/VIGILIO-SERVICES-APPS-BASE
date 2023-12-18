@@ -1,0 +1,35 @@
+<section id="start" class="relative overflow-hidden lg:h-[600px] w-full   flex justify-center items-center py-12">
+  <div class="absolute top-0 left-0 w-full h-full bg-[url(https://tofuu.getjusto.com/orioneat-prod/wFx9QdB3ofWXQvBJw-Pollo%20entero.jpg)] background-container bg-cover bg-no-repeat">
+  </div>
+  <div class="w-full bg-black h-full bg-opacity-80 absolute top-0 left-0 right-0 bottom-0"></div>
+  <div class="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto relative z-10">
+    <div class="flex flex-col gap-6 md:w-1/2  items-center mx-12">
+      <p class="text-white text-5xl font-bold text-center lg:text-start tracking-wider">
+        Enjoy Our Delicious Meal
+      </p>
+      <p class="text-white text-center lg:text-start font-normal tracking-wide relative">
+        Tempor erat elitr rebum at clita. Diam dolor diam ipsum
+        sit. Aliqu diam amet diam et eos. Clita erat ipsum et
+        lorem et sit, sed stet lorem sit clita duo justo magna
+        dolore erat amet
+        <%- include("../components/editAdmin.ejs",{uri:"/admin/settings"}) %>
+      </p>
+      <%- include("../components/LinkOne",{uri:"#carta",title:"Leer Carta"}) %>
+    </div>
+  </div>
+  <style>
+    .background-container {
+      animation: moveBackground 20s infinite linear;
+    }
+
+    @keyframes moveBackground {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 100% 0;
+      }
+    }
+  </style>
+</section>

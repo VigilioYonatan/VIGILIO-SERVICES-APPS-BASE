@@ -1,0 +1,21 @@
+<section class="max-w-6xl my-12 mx-auto px-2 flex flex-col justify-center items-center gap-6" data-aos="fade-up">
+  <%- include("../components/TitleOne",{title:"Categorías"}) %>
+  <h3 class="font-vigilio-title dark:text-secondary-light  relative">
+    Nuestras Categorías en el menú
+  </h3>
+  <% if(categories.length){ %>
+  <div class="grid grid-cols-2 sm:grid-cols-3 w-full gap-4">
+    <% for(category of categories){ %>
+    <div class="flex flex-col justify-center items-center gap-2">
+      <img class="w-full h-[120px] object-cover sm:h-[140px] lg:h-[200px] rounded-md" width="500" height="500" src="<%= printFileWithDimension( category.image, 'categories', 500)[0] %>" alt="<%= category.name  %>">
+      <span class="dark:text-secondary-light font-bold uppercase"><%= category.name  %></span>
+    </div>
+    <% } %>
+  </div>
+  <% } else{%>
+  <div class="min-h-[200px]">
+    <span class="dark:text-secondary-light text-secondary-dark">No hay categorías</span>
+    <%- include("../components/editAdminModifier",{uri:"/admin/categories"})  %>
+  </div>
+  <% } %>
+</section>

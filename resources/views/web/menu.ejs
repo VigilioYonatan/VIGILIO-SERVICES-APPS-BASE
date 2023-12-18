@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('components/webHead',{title:"Menú"}) %>
+</head>
+
+<body class="bg-paper-light dark:bg-background-dark antialiased">
+  <%- include('components/webHeader',{title:"Menú"}) %>
+  <div class="flex justify-center my-12 uppercase">
+    <%- include("./components/TitleOne",{title:"Menú"}) %>
+  </div>
+  <!-- categories -->
+  <%- include("./home/categories")  %>
+  <!-- offers -->
+  <%- include("./home/offers")  %>
+
+  <%- include('components/webFooter',{title:"Home"}) %>
+</body>
+
+</html>

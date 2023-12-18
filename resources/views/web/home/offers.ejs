@@ -1,0 +1,37 @@
+<% if(latestOffer.length){ %>
+<section class="max-w-6xl py-12 mx-auto px-2 flex flex-col justify-center items-center gap-6" data-aos="fade-up">
+  <%- include("../components/TitleOne",{title:"Nuestros Ofertas"}) %>
+  <h3 class="font-vigilio-title dark:text-secondary-light capitalize">
+    Preparados para atenderte
+  </h3>
+  <div class="justify-center gap-2 sm:gap-4 lg:gap-6 relative grid grid-cols-2 sm:grid-cols-3 w-full">
+    <% if(latestOffer.length){ %>
+    <% for(product of latestOffer){ %>
+    <div class=" flex flex-col bg-background-light dark:bg-paper-dark">
+      <picture class=" w-full relative">
+        <p class="absolute top-0 left-0 m-2 bg-primary px-2 text-white font-bold rounded-sm"><%= parseInt(product.discount) %>%</p>
+        <!-- /images/settings/test-food.jpg -->
+        <img class="dark:object-cover object-contain  w-full h-[160px] md:h-[180px] lg:h-[220px]" width="300" height="300" src="<%= printFileWithDimension(product.images,"products",500)  %>" alt="<%= product.name %>" />
+      </picture>
+      <div class="relative flex flex-col pt-2  justify-between items-center gap-1 h-full">
+        <%- include("../components/editAdminModifier",{uri:`/admin/products/${product.id}/update`})%>
+        <span class="font-bold text-sm md:text-base line-clamp-3 dark:text-secondary-light text-center "><%= product.name %></span>
+        <div class="flex flex-col justify-center items-center">
+          <% if(product.discount) { %>
+          <span class="font-normal text-terciary dark:text-secondary-light text-xs line-through	">
+            <%= formatMoney(product.price) %>
+          </span>
+          <% } %>
+          <span class="font-normal dark:text-secondary-light">
+            <%= formatMoney(product.price - (product.discount/100) * product.price) %>
+          </span>
+        </div>
+        <button-product class="w-full flex" :product="<%= JSON.stringify(product) %>"></button-product>
+      </div>
+    </div>
+    <% } %>
+    <% } %>
+  </div>
+  <%- include("../components/LinkOne",{uri:"",title:"Ver más"}) %>
+</section>
+<% } %>

@@ -1,0 +1,48 @@
+<section
+    class="max-w-6xl mx-auto justify-center items-center flex flex-col lg:flex-row gap-6 px-2"
+    data-aos="fade-up"
+>
+    <div class="w-11/12 md:w-1/2 lg:w-1/2 grid grid-cols-2 gap-4">
+        <div>
+            <img width="300" height="300" src="/images/img1.jpg" alt="" />
+        </div>
+        <div class="flex items-end">
+            <img
+                class="w-[80%] h-[80%]"
+                width="300"
+                height="300"
+                src="/images/img1.jpg"
+                alt=""
+            />
+        </div>
+        <div class="flex justify-end">
+            <img
+                class="w-[80%] h-[80%]"
+                width="300"
+                height="300"
+                src="/images/img1.jpg"
+                alt=""
+            />
+        </div>
+        <div>
+            <img width="300" height="300" src="/images/img1.jpg" alt="" />
+        </div>
+    </div>
+    <div class="w-11/12 md:w-1/2 flex flex-col gap-2 lg:gap-4 items-center">
+        <span
+            class="font-pacifico text-xl lg:text-3xl text-primary relative inline-block after:absolute after:content-[''] after:w-[50px] after:h-[2px] after:top-[50%] self-center lg:self-start after:right-[-55px] after:mt-[-1px] after:bg-primary"
+            >Nosotros</span
+        >
+
+        <h2
+            class="font-vigilio-title lg:self-start text-black dark:text-secondary-light"
+        >
+            Welcome to
+            <i class="fa fa-utensils text-primary me-2"></i>
+            <%=$information.name %> <%-
+            include("../components/editAdmin.ejs",{uri:"/admin/settings/#name"})
+            %>
+        </h2>
+        <p class="font-vigilio-p"><%= $information.about %></p>
+    </div>
+</section>

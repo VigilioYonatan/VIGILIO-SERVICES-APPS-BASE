@@ -1,0 +1,20 @@
+<% if(reviews.length > 3){ %>
+<section class="max-w-6xl gap-4 my-12 mx-auto px-2 flex flex-col justify-center items-center" data-aos="fade-up">
+  <%- include("../components/TitleOne",{title:"Testimonios"}) %>
+  <h3 class="font-vigilio-title dark:text-secondary-light capitalize">
+    Nuestras reseñas
+  </h3>
+  <web-reviews :reviews="<%= JSON.stringify(reviews) %>" class="w-full"></web-reviews>
+</section>
+<% }else{ %>
+<div class="relative flex justify-center w-[250px] mx-auto">
+  <%- include("../components/editAdminModifier", 
+    {   
+        uri:"/admin/reviews",
+        children:`<div class="min-h-[200px]">
+                    <span class="dark:text-secondary-light text-secondary-dark">No hay Reviews</span>
+                </div>` 
+    }
+    )  %>
+</div>
+<% } %>
