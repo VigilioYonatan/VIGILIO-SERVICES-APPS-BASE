@@ -1,5 +1,5 @@
 import { Injectable } from "@decorators/di";
-import { InternatServerErrorException } from "@vigilio/express-core";
+import { InternalServerErrorException } from "@vigilio/express-core";
 import { type PaginatorModel } from "../libs";
 import { Op, fn, col } from "sequelize";
 import { Products } from "@/products/entities/products.entity";
@@ -119,7 +119,7 @@ export class PaginatorApiServices {
                 ]);
                 break;
             default:
-                throw new InternatServerErrorException(
+                throw new InternalServerErrorException(
                     "Comunicarse con el desarrollador"
                 );
         }

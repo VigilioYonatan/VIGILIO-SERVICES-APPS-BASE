@@ -14,7 +14,7 @@ export default defineConfig({
         preact(),
     ],
     root: "resources",
-    base: process.env.NODE_ENV === "production" ? "/dist/" : ".vite/dist/",
+    base: process.env.NODE_ENV === "production" ? "/dist/" : "/",
     resolve: {
         // RESOURCES ALIAS
         alias: {
