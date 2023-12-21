@@ -35,7 +35,7 @@ function nameTemplate(text: string) {
 }
 
 export function reactComponent(children: JSX.Element | JSX.Element[]) {
-    const div = c("div");
+    const div = c("div", { className: "w-full" });
 
     renderPreact(<Suspense fallback={null}>{children}</Suspense>, div);
     return div;

@@ -181,7 +181,7 @@ export class Server {
             next();
         });
         // conectar base de datos
-        // connectDB();
+        connectDB();
     }
 
     routes() {

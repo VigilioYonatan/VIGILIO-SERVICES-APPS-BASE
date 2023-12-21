@@ -18,11 +18,13 @@ import { productsImagesQualities } from "@/products/lib";
 import { informationLogoQualities } from "@/information/lib";
 import { InformationService } from "../../information/services/information.service";
 import { reviewsFotoQualities } from "@/reviews/lib";
+import { ProductsService } from "@/products/services/products.service";
 @Injectable()
 export class UploadsService {
     constructor(
         private readonly usersService: UsersService,
-        private readonly informationService: InformationService
+        private readonly informationService: InformationService,
+        private readonly productsService: ProductsService
     ) {}
     async store(props: {
         files: File[];
@@ -120,6 +122,14 @@ export class UploadsService {
                 entidad = user;
                 if (user.foto) {
                     removeFile(user.foto, entity);
+                }
+                break;
+            }
+            case "products": {
+                const { product } = await this.productsService.show(id);
+                entidad = product;
+                if (product.images) {
+                    removeFile(product.images, entity);
                 }
                 break;
             }

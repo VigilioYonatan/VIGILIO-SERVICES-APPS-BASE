@@ -81,7 +81,7 @@ const productsColumns: ProductsColumnsPaginator = [
         key: "images",
         header: "imagen",
         cell: (props) => {
-            const images = printImagesProduct(props.images, 300);
+            const images = printImagesProduct(props.images, 500);
             return (
                 <div
                     class="relative w-[60px] h-[50px] mx-auto"

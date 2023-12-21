@@ -26,7 +26,7 @@ function CategoriesShow({ params: { slug } }: CategoriesShowProps) {
         );
     }
     if (isSuccess && data) {
-        const images = printImagesCategories(data.category.image, 300);
+        const images = printImagesCategories(data.category.image, 500);
 
         component = (
             <div class="p-4">

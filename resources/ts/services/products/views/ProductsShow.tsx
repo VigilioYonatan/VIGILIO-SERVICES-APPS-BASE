@@ -32,7 +32,7 @@ function ProductsShow({ params: { slug } }: ProductsShowProps) {
         );
     }
     if (isSuccess && data) {
-        const images = printImagesProduct(data.product.images, 300);
+        const images = printImagesProduct(data.product.images, 500);
 
         component = (
             <div class="p-4">

@@ -15,9 +15,7 @@
     overflow: auto;
     width: 100%;
 }
-.vigilio-modal .modal > div {
-    width: 100%;
-}
+
 .vigilio-modal .modal {
     padding: 0.5rem !important;
     overflow: auto;
@@ -96,7 +94,6 @@
 .vigilio-alert .vigilio-title {
     font-size: 0.9rem !important;
 }
-
 
 /*  scrollbar custom */
 ::-webkit-scrollbar {

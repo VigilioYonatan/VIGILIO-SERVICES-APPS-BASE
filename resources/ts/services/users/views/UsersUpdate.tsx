@@ -15,12 +15,12 @@ import Loading from "@/admin/components/Loading";
 import View404 from "@/admin/views/404";
 import AdminBreadCrumb from "@/admin/components/AdminBreadCrumb";
 import { rolesIndexApi } from "@/roles/apis/roles.index.api";
-import { valibotVigilio } from "~/lib/valibot";
 import { formatDateTwo } from "~/lib/helpers";
 import { printFileUser } from "../lib/helpers";
 import { authPermissionModifierGuard } from "@/auth/stores/auth.store";
 import AdminHr from "~/components/AdminHr";
 import { JSX } from "preact/jsx-runtime";
+import { valibotResolver } from "@hookform/resolvers/valibot";
 
 interface UsersUpdateProps {
     params: { slug?: string | number };
@@ -43,7 +43,7 @@ function UsersUpdate({ params: { slug } }: UsersUpdateProps) {
     if (query.isSuccess && query.data) {
         const user = query.data.user as UsersShowAPI["user"];
         const formUsersUpdate = useForm<UsersUpdateDto>({
-            resolver: valibotVigilio(usersUpdateDto),
+            resolver: valibotResolver(usersUpdateDto),
             mode: "all",
             values: useMemo(() => {
                 const {
@@ -67,7 +67,7 @@ function UsersUpdate({ params: { slug } }: UsersUpdateProps) {
         });
         const formUsersUpdateFoto = useForm<UsersUpdateFotoDto>({
             mode: "all",
-            resolver: valibotVigilio(usersUpdateFotoDto),
+            resolver: valibotResolver(usersUpdateFotoDto),
         });
 
         async function initialUpdateFoto() {

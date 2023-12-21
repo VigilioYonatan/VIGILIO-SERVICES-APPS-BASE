@@ -17,12 +17,12 @@ import Form from "~/components/form";
 import Loading from "@/admin/components/Loading";
 import View404 from "@/admin/views/404";
 import AdminBreadCrumb from "@/admin/components/AdminBreadCrumb";
-import { valibotVigilio } from "~/lib/valibot";
 import { printImagesProduct } from "../lib/helpers";
 import { authPermissionModifierGuard } from "@/auth/stores/auth.store";
 import AdminHr from "~/components/AdminHr";
 import { JSX } from "preact/jsx-runtime";
 import { categoriesIndexApi } from "@/categories/apis/categories.index.api";
+import { valibotResolver } from "@hookform/resolvers/valibot";
 
 interface ProductsUpdateProps {
     params: { slug?: string | number };
@@ -45,7 +45,7 @@ function ProductsUpdate({ params: { slug } }: ProductsUpdateProps) {
     if (query.isSuccess && query.data) {
         const product = query.data.product as ProductsShowAPI["product"];
         const formProductsUpdate = useForm<ProductsUpdateDto>({
-            resolver: valibotVigilio(productsUpdateDto),
+            resolver: valibotResolver(productsUpdateDto),
             mode: "all",
             values: useMemo(() => {
                 const {
@@ -66,7 +66,7 @@ function ProductsUpdate({ params: { slug } }: ProductsUpdateProps) {
         });
         const formProductsUpdateImages = useForm<ProductsUpdateImagesDto>({
             mode: "all",
-            resolver: valibotVigilio(productsUpdateImagesDto),
+            resolver: valibotResolver(productsUpdateImagesDto),
         });
 
         async function initial() {

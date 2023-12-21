@@ -13,7 +13,6 @@ import {
 import Loading from "@/admin/components/Loading";
 import View404 from "@/admin/views/404";
 import { informationShowApi } from "../apis/information.show.api";
-import { valibotVigilio } from "~/lib/valibot";
 import { printLogoInformation } from "../lib/helpers";
 import {
     informationUpdateApi,
@@ -21,6 +20,7 @@ import {
 } from "../apis/information.update.api";
 import { sweetModal } from "@vigilio/sweet";
 import { authPermissionAdmin } from "@/auth/stores/auth.store";
+import { valibotResolver } from "@hookform/resolvers/valibot";
 
 function InformationUpdate() {
     if (!authPermissionAdmin()) {
@@ -41,7 +41,7 @@ function InformationUpdate() {
 
         const information = query.data.information;
         const settingsUpdateform = useForm<InformationUpdateDto>({
-            resolver: valibotVigilio(informationUpdateDto),
+            resolver: valibotResolver(informationUpdateDto),
             mode: "all",
             values: useMemo(() => {
                 if (query.data) {
@@ -52,7 +52,7 @@ function InformationUpdate() {
             }, []),
         });
         const settingsLogoUpdateform = useForm<InformationLogoUpdateDto>({
-            resolver: valibotVigilio(informationLogoUpdateDto),
+            resolver: valibotResolver(informationLogoUpdateDto),
             mode: "all",
         });
         useEffect(() => {

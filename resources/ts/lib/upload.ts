@@ -14,7 +14,7 @@ export function printFileWithDimension(
     return images
         .filter((img) => img.dimension === dimension)
         .map((file) =>
-            file.file.startsWith("https://")
+            file.file.startsWith("https://") || file.file.startsWith("http://")
                 ? file.file
                 : `${enviroments.VITE_URL}/images/${entity}/${file.file}`
         );
